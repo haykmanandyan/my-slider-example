@@ -1,0 +1,27 @@
+<div class="arrow-container">
+  <div class="left-arrow" (click)="choosePreviousImg()">
+    <i class="fas fa-angle-left"></i>
+  </div>
+
+  <div class="right-arrow" (click)="chooseNextImg()">
+    <i class="fas fa-angle-right"></i>
+  </div>
+
+  <!--<div [ngSwitch]="currentImgNumber">-->
+  <div class="img-flex">
+    <!--  <div *ngSwitchCase="0">asd</div>-->
+    <!--  <div *ngSwitchCase="1">zxc</div>-->
+    <!--  <div *ngSwitchCase="2">fff</div>-->
+    <!--  <img [src]="sliders[currentImgNumber]" alt="" *ngFor="let slider of sliders, let i = index">-->
+    <img [src]="sliders[currentImgNumber][currentKeyName]" alt="">
+  </div>
+</div>
+
+<ng-container *ngIf="hasDotsTree">
+  <div class="dot-container">
+    <div class="dot"
+         *ngFor="let slider of sliders, let i = index"
+         (click)="onSelectImage(i)"
+         [ngStyle]="{'padding': i===currentImgNumber ? '8px' : '0px'}"></div>
+  </div>
+</ng-container>
